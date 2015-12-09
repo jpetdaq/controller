@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2015.3 (64-bit)              -->
+<!--                                                         -->
+<!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
+
+<Project Version="7" Minor="10" Path="/home/michal/jpet/new_jpet/test_jpet/test_jpet.xpr">
+  <DefaultLaunch Dir="$PRUNDIR"/>
+  <Configuration>
+    <Option Name="Id" Val="543b2673becc43eb946d96d6ac2f67a0"/>
+    <Option Name="Part" Val="xc7k325tffg900-2"/>
+    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+    <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
+    <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
+    <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
+    <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
+    <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
+    <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
+    <Option Name="TargetLanguage" Val="VHDL"/>
+    <Option Name="BoardPart" Val="xilinx.com:kc705:part0:1.2"/>
+    <Option Name="ActiveSimSet" Val="sim_1"/>
+    <Option Name="DefaultLib" Val="work"/>
+    <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
+    <Option Name="IPUserFilesDir" Val="$PPRDIR/test_jpet.ip_user_files"/>
+    <Option Name="IPStaticSourceDir" Val="$PPRDIR/test_jpet.ip_user_files/ipstatic"/>
+    <Option Name="EnableBDX" Val="FALSE"/>
+  </Configuration>
+  <FileSets Version="1" Minor="31">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net_gbe_protocols.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net_gbe_protocols.vhdl"/>
+          <Attr Name="ImportTime" Val="1431433353"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net_gbe_components.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net_gbe_components.vhdl"/>
+          <Attr Name="ImportTime" Val="1428087621"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_type_validator.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_type_validator.vhdl"/>
+          <Attr Name="ImportTime" Val="1428178890"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_protocol_prioritizer.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_protocol_prioritizer.vhdl"/>
+          <Attr Name="ImportTime" Val="1431433428"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/protocols/trb_net16_gbe_protocol_PING.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/protocols/trb_net16_gbe_protocol_PING.vhdl"/>
+          <Attr Name="ImportTime" Val="1428144590"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/protocols/trb_net16_gbe_protocol_full_receiver.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/protocols/trb_net16_gbe_protocol_full_receiver.vhdl"/>
+          <Attr Name="ImportTime" Val="1433936806"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/protocols/trb_net16_gbe_protocol_DHCP.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/protocols/trb_net16_gbe_protocol_DHCP.vhdl"/>
+          <Attr Name="ImportTime" Val="1429623935"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/protocols/trb_net16_gbe_protocol_ARP.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/protocols/trb_net16_gbe_protocol_ARP.vhdl"/>
+          <Attr Name="ImportTime" Val="1428144598"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/TDC_parser.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/TDC_parser.vhd"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/signal_sync.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pulse_sync.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/parser.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/parser.vhd"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/fifo_512x72_generic_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/fifo_512x32_generic_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/fifo_4096x9_generic_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ML605/duram.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/TECH/ML605/duram.v"/>
+          <Attr Name="ImportTime" Val="1429698560"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/devicefilter.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/devicefilter.vhd"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_transmit_controller2.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_transmit_controller2.vhdl"/>
+          <Attr Name="ImportTime" Val="1428408007"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_receive_control.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_receive_control.vhdl"/>
+          <Attr Name="ImportTime" Val="1431428978"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_protocol_selector.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_protocol_selector.vhdl"/>
+          <Attr Name="ImportTime" Val="1431596998"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_frame_receiver.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_frame_receiver.vhdl"/>
+          <Attr Name="ImportTime" Val="1431593436"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_frame_constr.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_frame_constr.vhdl"/>
+          <Attr Name="ImportTime" Val="1428566964"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/RMON/RMON_dpram.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/RMON/RMON_dpram.v"/>
+          <Attr Name="ImportTime" Val="1429723303"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/RMON/RMON_ctrl.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/RMON/RMON_ctrl.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/RMON/RMON_addr_gen.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/RMON/RMON_addr_gen.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_tx/Ramdon_gen.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_tx/Ramdon_gen.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_tx/MAC_tx_FF.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_tx/MAC_tx_FF.v"/>
+          <Attr Name="ImportTime" Val="1429730537"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_tx/MAC_tx_Ctrl.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_tx/MAC_tx_Ctrl.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_rx/MAC_rx_FF.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_rx/MAC_rx_FF.v"/>
+          <Attr Name="ImportTime" Val="1429723460"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_rx/MAC_rx_ctrl.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_rx/MAC_rx_ctrl.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_tx/flow_ctrl.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_tx/flow_ctrl.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/miim/eth_shiftreg.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/miim/eth_shiftreg.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/miim/eth_outputcontrol.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/miim/eth_outputcontrol.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/miim/eth_clockgen.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/miim/eth_clockgen.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/edge_to_pulse.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_tx/CRC_gen.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_tx/CRC_gen.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_rx/CRC_chk.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_rx/CRC_chk.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ML605/CLK_SWITCH.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/TECH/ML605/CLK_SWITCH.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ML605/CLK_DIV2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/TECH/ML605/CLK_DIV2.v"/>
+          <Attr Name="ImportTime" Val="1429649177"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_main_control.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_main_control.vhdl"/>
+          <Attr Name="ImportTime" Val="1431529897"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_frame_tx.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_frame_tx.vhdl"/>
+          <Attr Name="ImportTime" Val="1429537961"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/trb_net16_gbe_frame_rx.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/trb_net16_gbe_frame_rx.vhdl"/>
+          <Attr Name="ImportTime" Val="1431432219"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/RMON.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/RMON.v"/>
+          <Attr Name="ImportTime" Val="1429649175"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/reg_int.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/reg_int.v"/>
+          <Attr Name="ImportTime" Val="1429649175"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/Phy_int.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/Phy_int.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_tx.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_tx.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_rx.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_rx.v"/>
+          <Attr Name="ImportTime" Val="1429649175"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/fifo_512x9x36_generic_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/fifo_512x36x9_generic_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/eth_miim.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/eth_miim.v"/>
+          <Attr Name="ImportTime" Val="1429649175"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/Clk_ctrl.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/Clk_ctrl.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/afifo.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/afifo.v"/>
+          <Attr Name="ImportTime" Val="1429649175"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/mac_to_gbe_bridge.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/MAC_top.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OpenCores/ethernet_tri_mode/trunk/rtl/verilog/MAC_top.v"/>
+          <Attr Name="ImportTime" Val="1429649176"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/gbe_to_mac_bridge.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/gbe_module_wrapper.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/gbe_module_wrapper.vhdl"/>
+          <Attr Name="ImportTime" Val="1431433015"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/gbe_gmii_wrapper.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Repozytoria/grzegorz.korcyl/gbe2_common/hdl/gbe_gmii_wrapper.vhdl"/>
+          <Attr Name="ImportTime" Val="1429795388"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/clock.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/top.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_sync_block.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_rx_startup_fsm.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_reset_sync.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/vector_func.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/vector_func.vhd"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_transceiver.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_gtwizard_gt.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/packet_simulation.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/packet_simulation.vhd"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/top.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/top.vhd"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_tx_startup_fsm.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_gtwizard.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_block.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/ila.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/icon.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/fifo_1024x8_generic_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/packet_simulation/endpoint_filter.vhdl">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../JPET-FPGA-parser/packet_simulation/endpoint_filter.vhdl"/>
+          <Attr Name="ImportTime" Val="1446471276"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/pcs_gtwizard_init.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="main"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+      <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/new/main.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/main.xdc"/>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/new/top_testbench.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/imports/testbenches/rx_main_tx_testbench.vhdl">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../SkyDrive/Repozytoria/grzegorz.korcyl/gbe2_common/testbenches/rx_main_tx_testbench.vhdl"/>
+          <Attr Name="ImportTime" Val="1431602975"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="top_testbench"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="gig_ethernet_pcs_pma_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/gig_ethernet_pcs_pma_0">
+      <File Path="$PSRCDIR/sources_1/ip/gig_ethernet_pcs_pma_0/gig_ethernet_pcs_pma_0.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="gig_ethernet_pcs_pma_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="xilinx_series7_vivado_fifo_4096x9" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_series7_vivado_fifo_4096x9">
+      <File Path="$PSRCDIR/sources_1/ip/xilinx_series7_vivado_fifo_4096x9/xilinx_series7_vivado_fifo_4096x9.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="xilinx_series7_vivado_fifo_4096x9"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="xilinx_series7_vivado_fifo_512x32" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_series7_vivado_fifo_512x32">
+      <File Path="$PSRCDIR/sources_1/ip/xilinx_series7_vivado_fifo_512x32/xilinx_series7_vivado_fifo_512x32.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="xilinx_series7_vivado_fifo_512x32"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="xilinx_series7_vivado_fifo_512x72" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_series7_vivado_fifo_512x72">
+      <File Path="$PSRCDIR/sources_1/ip/xilinx_series7_vivado_fifo_512x72/xilinx_series7_vivado_fifo_512x72.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="xilinx_series7_vivado_fifo_512x72"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="xilinx_series7_vivado_fifo_512x9x36" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_series7_vivado_fifo_512x9x36">
+      <File Path="$PSRCDIR/sources_1/ip/xilinx_series7_vivado_fifo_512x9x36/xilinx_series7_vivado_fifo_512x9x36.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="xilinx_series7_vivado_fifo_512x9x36"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="xilinx_series7_vivado_fifo_512x36x9" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_series7_vivado_fifo_512x36x9">
+      <File Path="$PSRCDIR/sources_1/ip/xilinx_series7_vivado_fifo_512x36x9/xilinx_series7_vivado_fifo_512x36x9.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="xilinx_series7_vivado_fifo_512x36x9"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+  </FileSets>
+  <Simulators>
+    <Simulator Name="XSim">
+      <Option Name="Description" Val="Vivado Simulator"/>
+      <Option Name="CompiledLib" Val="0"/>
+    </Simulator>
+    <Simulator Name="ModelSim">
+      <Option Name="Description" Val="ModelSim Simulator"/>
+    </Simulator>
+    <Simulator Name="Questa">
+      <Option Name="Description" Val="Questa Advanced Simulator"/>
+    </Simulator>
+    <Simulator Name="IES">
+      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
+    </Simulator>
+    <Simulator Name="VCS">
+      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
+    </Simulator>
+    <Simulator Name="Riviera">
+      <Option Name="Description" Val="Riviera-PRO Simulator"/>
+    </Simulator>
+  </Simulators>
+  <Runs Version="1" Minor="10">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="gig_ethernet_pcs_pma_0_synth_1" Type="Ft3:Synth" SrcSet="gig_ethernet_pcs_pma_0" Part="xc7k325tffg900-2" ConstrsSet="gig_ethernet_pcs_pma_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/gig_ethernet_pcs_pma_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_4096x9_synth_1" Type="Ft3:Synth" SrcSet="xilinx_series7_vivado_fifo_4096x9" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_4096x9" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/xilinx_series7_vivado_fifo_4096x9_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x32_synth_1" Type="Ft3:Synth" SrcSet="xilinx_series7_vivado_fifo_512x32" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x32" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/xilinx_series7_vivado_fifo_512x32_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x72_synth_1" Type="Ft3:Synth" SrcSet="xilinx_series7_vivado_fifo_512x72" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x72" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/xilinx_series7_vivado_fifo_512x72_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x9x36_synth_1" Type="Ft3:Synth" SrcSet="xilinx_series7_vivado_fifo_512x9x36" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x9x36" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/xilinx_series7_vivado_fifo_512x9x36_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x36x9_synth_1" Type="Ft3:Synth" SrcSet="xilinx_series7_vivado_fifo_512x36x9" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x36x9" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/xilinx_series7_vivado_fifo_512x36x9_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="synth_2" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/synth_2" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design">
+          <Option Id="ResourceSharing">2</Option>
+          <Option Id="FlattenHierarchy">1</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="synth_3" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_3" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design">
+          <Option Id="FlattenHierarchy">1</Option>
+          <Option Id="ResourceSharing">2</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="gig_ethernet_pcs_pma_0_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="gig_ethernet_pcs_pma_0" Description="Vivado Implementation Defaults" SynthRun="gig_ethernet_pcs_pma_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_4096x9_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_4096x9" Description="Vivado Implementation Defaults" SynthRun="xilinx_series7_vivado_fifo_4096x9_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x32_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x32" Description="Vivado Implementation Defaults" SynthRun="xilinx_series7_vivado_fifo_512x32_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x72_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x72" Description="Vivado Implementation Defaults" SynthRun="xilinx_series7_vivado_fifo_512x72_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x9x36_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x9x36" Description="Vivado Implementation Defaults" SynthRun="xilinx_series7_vivado_fifo_512x9x36_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="xilinx_series7_vivado_fifo_512x36x9_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="xilinx_series7_vivado_fifo_512x36x9" Description="Vivado Implementation Defaults" SynthRun="xilinx_series7_vivado_fifo_512x36x9_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="impl_2" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" Dir="$PRUNDIR/impl_2" SynthRun="synth_2" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="impl_3" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" SynthRun="synth_3" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+  </Runs>
+</Project>
