@@ -36,7 +36,6 @@ entity trb_net16_gbe_main_control is
 		SLOWCTRL_BUFFER_SIZE  : integer range 1 to 4
 	);
 	port(
-            LED : out std_logic_vector(7 downto 0);
 		CLK                           : in  std_logic; -- system clock
 		CLK_125                       : in  std_logic;
 		RESET                         : in  std_logic;
@@ -100,7 +99,12 @@ entity trb_net16_gbe_main_control is
 
 		DATA_HIST_OUT                 : out hist_array;
 		SCTRL_HIST_OUT                : out hist_array;
-
+        
+        USR_DATA_OUT                  : out std_logic_vector(7 downto 0);
+        USR_DATA_VALID_OUT            : out std_logic;
+        USR_SOP_OUT                   : out std_logic;
+        USR_EOP_OUT                   : out std_logic;
+        
 		DEBUG_OUT                     : out std_logic_vector(255 downto 0)
 	);
 end trb_net16_gbe_main_control;
@@ -168,7 +172,6 @@ begin
 			SLOWCTRL_BUFFER_SIZE  => SLOWCTRL_BUFFER_SIZE
 		)
 		port map(
-		    LED=> LED,
 			CLK                    => CLK,
 			RESET                  => RESET,
 			RESET_FOR_DHCP         => MC_RESET_LINK_IN,
@@ -210,6 +213,12 @@ begin
 
 			DATA_HIST_OUT          => DATA_HIST_OUT,
 			SCTRL_HIST_OUT         => SCTRL_HIST_OUT,
+			
+			USR_DATA_OUT           => USR_DATA_OUT,
+            USR_DATA_VALID_OUT     => USR_DATA_VALID_OUT,
+            USR_SOP_OUT            => USR_SOP_OUT,
+            USR_EOP_OUT            => USR_EOP_OUT,
+			
 			DEBUG_OUT              => open
 		);
 

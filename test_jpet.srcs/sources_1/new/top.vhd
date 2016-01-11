@@ -122,6 +122,12 @@ END COMPONENT;
     signal adv_config_vec : std_logic_vector(15 downto 0);
     signal damn_low_bit, damn_high_bit : std_logic;
 
+    signal usr_data : std_logic_vector(7 downto 0);
+    signal usr_data_valid : std_logic;
+    signal usr_sop : std_logic;
+    signal usr_eop : std_logic;
+    
+    signal parser_debug : std_logic_vector(7 downto 0);
 begin
 
 
@@ -308,7 +314,7 @@ pcs_core_sim_gen : if SIMULATE = 1 generate
 		gmii_rx_er <= '0';
 		gmii_rxd   <= x"00";
 	
-		wait for 50 us;
+		wait for 25 us;
 		
 		
 		-- FIRST FRAME UDP - DHCP Offer
@@ -429,9 +435,9 @@ pcs_core_sim_gen : if SIMULATE = 1 generate
 		wait until rising_edge(gtrefclk);
 		gmii_rxd		<= x"00";
 		wait until rising_edge(gtrefclk);
-		gmii_rxd		<= x"de";
+		gmii_rxd		<= x"be";
 		wait until rising_edge(gtrefclk);
-		gmii_rxd		<= x"ad";
+		gmii_rxd		<= x"11";
 		wait until rising_edge(gtrefclk);
 		gmii_rxd		<= x"fa";
 		wait until rising_edge(gtrefclk);
@@ -487,13 +493,444 @@ pcs_core_sim_gen : if SIMULATE = 1 generate
 		wait until rising_edge(gtrefclk);
 		gmii_rx_dv <= '0';	
 	
-		wait;	
+	    --wait for DHCP REQUEST
+		wait for 5 us;	
 	
+	   -- FIRST FRAME UDP - DHCP ACK
+        wait until rising_edge(gtrefclk);
+        gmii_rx_dv <= '1';
+        -- preamble
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"55";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"d5";
+        wait until rising_edge(gtrefclk);
+        -- dest mac
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"be";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"ef";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"11";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"11";
+        wait until rising_edge(gtrefclk);
+        -- src mac
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"aa";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"bb";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"cc";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"dd";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"ee";
+        wait until rising_edge(gtrefclk);
+        -- frame type
+        gmii_rxd        <= x"08";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        -- ip headers
+        gmii_rxd        <= x"45";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"10";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"01";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"5a";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"49";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"ff";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"11";  -- udp
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"cc";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"cc";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"c0";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"a8";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"01";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"c0";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"a8";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"02";
+        -- udp headers
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"43";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"44";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"02";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"2c";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"aa";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"bb";
+        -- dhcp data
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"02";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"01";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"06";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"be";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"11";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"fa";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"ce";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"c0";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"a8";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"10";
+
+        for i in 0 to 219 loop
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        end loop;
+
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"35";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"01";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"05";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"00";
+        wait until rising_edge(gtrefclk);
+        
+        -- terminal checksum
+        gmii_rxd        <= x"01";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"02";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"03";
+        wait until rising_edge(gtrefclk);
+        gmii_rxd        <= x"04";
+        wait until rising_edge(gtrefclk);
+        gmii_rx_dv <= '0';    
+    
+        for i in 0 to 10 loop
+            --wait and send udp
+            wait for 20 us;    
+            
+            -- SEND TEST UDP
+            wait until rising_edge(gtrefclk);
+            gmii_rx_dv <= '1';
+            -- preamble
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"d5";
+            wait until rising_edge(gtrefclk);
+            -- dest mac
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"be";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ef";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"11";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"11";
+            wait until rising_edge(gtrefclk);
+            -- src mac
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"aa";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"bb";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"cc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"dd";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ee";
+            wait until rising_edge(gtrefclk);
+            -- frame type
+            gmii_rxd        <= x"08";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            -- ip headers
+            gmii_rxd        <= x"45";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"10";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"05";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"dc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"49";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"20";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ff";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"11";  -- udp
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"cc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"cc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"c0";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"a8";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"01";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"c0";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"a8";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"02";
+            -- udp headers
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ac";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"fc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"27";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"10";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"07";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"d8";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"54";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ac";
+            -- test udp data
+            for i in 0 to 1471 loop
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= std_logic_vector(to_unsigned(i,gmii_rxd'length));
+            end loop;
+            -- terminal checksum
+            gmii_rxd        <= x"01";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"02";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"03";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"04";
+            wait until rising_edge(gtrefclk);
+            gmii_rx_dv <= '0';  
+            
+            wait for 5 us;    
+                        
+            -- SEND TEST UDP
+            wait until rising_edge(gtrefclk);
+            gmii_rx_dv <= '1';
+            -- preamble
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"55";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"d5";
+            wait until rising_edge(gtrefclk);
+            -- dest mac
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"be";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ef";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"11";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"11";
+            wait until rising_edge(gtrefclk);
+            -- src mac
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"aa";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"bb";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"cc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"dd";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ee";
+            wait until rising_edge(gtrefclk);
+            -- frame type
+            gmii_rxd        <= x"08";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            -- ip headers
+            gmii_rxd        <= x"45";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"10";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"02";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"24";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"49";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"b9";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ff";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"11";  -- udp
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"cc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"cc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"c0";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"a8";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"01";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"c0";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"a8";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"00";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"02";
+            -- udp headers
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ac";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"fc";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"27";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"10";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"07";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"d8";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"54";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"ac";
+            -- test udp data
+            for i in 0 to 527 loop
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= std_logic_vector(to_unsigned(i,gmii_rxd'length));
+            end loop;
+            -- terminal checksum
+            gmii_rxd        <= x"01";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"02";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"03";
+            wait until rising_edge(gtrefclk);
+            gmii_rxd        <= x"04";
+            wait until rising_edge(gtrefclk);
+            gmii_rx_dv <= '0';  
+	      end loop;
+	   wait;
 	end process;
 	
 	
 end generate pcs_core_sim_gen; 
-
 
 gbe_i : entity work.gbe_gmii_wrapper
 	generic map(
@@ -507,7 +944,6 @@ gbe_i : entity work.gbe_gmii_wrapper
 		INCLUDE_OPENCORES_MAC => 1
 	)
 	port map(
-	    LED => LED,
 		SYS_CLK        => clk200,
 		RESET_IN       => logic_reset, --reset,
 		GBE_CLK_DV     => userclk,
@@ -521,6 +957,11 @@ gbe_i : entity work.gbe_gmii_wrapper
 		TX_DATA_OUT    => gmii_txd,
 		TX_DATA_DV_OUT => gmii_tx_en,
 		TX_DATA_ER_OUT => gmii_tx_er,
+
+        USR_DATA_OUT => usr_data,
+        USR_DATA_VALID_OUT => usr_data_valid,
+        USR_SOP_OUT => usr_sop,
+        USR_EOP_OUT => usr_eop,
 
 		DEBUG_OUT      => gbe_debug
 	);
@@ -549,6 +990,19 @@ gbe_i : entity work.gbe_gmii_wrapper
 --    LED(6) <= '1';
 --    LED(7) <= '0';
 	 
+parser_wrapper : entity work.parser_wrapper
+    port map(
+        CLK => clk200,
+        RESET => logic_reset,
+        USR_DATA => usr_data,
+        USR_DATA_VALID => usr_data_valid,
+        USR_SOP => usr_sop,
+        USR_EOP => usr_eop,
+        DEBUG_OUT => parser_debug
+    );
+	 
+	 LED <= parser_debug when rising_edge(clk200);
+	 
 	 process(locked, clk200)
 	 begin
 		if (locked = '0') then
@@ -563,5 +1017,5 @@ gbe_i : entity work.gbe_gmii_wrapper
 	end process;
 	
 	reset <= '1' when locked = '0' or CPU_RESET = '1' else '0';
-
+	
 end Behavioral;

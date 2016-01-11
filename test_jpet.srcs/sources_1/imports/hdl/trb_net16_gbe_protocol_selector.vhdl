@@ -34,7 +34,6 @@ entity trb_net16_gbe_protocol_selector is
 		SLOWCTRL_BUFFER_SIZE  : integer range 1 to 4
 	);
 	port(
-	    LED                           : out  std_logic_vector(7 downto 0);
 		CLK                           : in  std_logic; -- system clock
 		RESET                         : in  std_logic;
 		RESET_FOR_DHCP                : in  std_logic;
@@ -88,6 +87,11 @@ entity trb_net16_gbe_protocol_selector is
 		DATA_HIST_OUT                 : out hist_array;
 		SCTRL_HIST_OUT                : out hist_array;
 
+        USR_DATA_OUT                  : out std_logic_vector(7 downto 0);
+        USR_DATA_VALID_OUT            : out std_logic;
+        USR_SOP_OUT                   : out std_logic;
+        USR_EOP_OUT                   : out std_logic;
+        
 		DEBUG_OUT                     : out std_logic_vector(255 downto 0)
 	);
 end trb_net16_gbe_protocol_selector;
@@ -133,20 +137,11 @@ architecture trb_net16_gbe_protocol_selector of trb_net16_gbe_protocol_selector 
 	signal zeros    : std_logic_vector(c_MAX_PROTOCOLS - 1 downto 0);
 
 	signal my_ip : std_logic_vector(31 downto 0);
-
-    signal parser_start_packet : STD_LOGIC;
-    signal parser_end_packet : STD_LOGIC;
-    signal parser_data_valid : STD_LOGIC;
-    signal parser_data_in : STD_LOGIC_VECTOR(7 downto 0);
-    signal parser_eventID : std_logic_vector(31 downto 0);
-    signal parser_triggerID : std_logic_vector(31 downto 0);
-    signal parser_deviceID : std_logic_vector(15 downto 0);
-    signal parser_dataWORD : std_logic_vector(31 downto 0);
-    signal parser_out_data : std_logic;
     
-    signal device_filter_channel_offset : std_logic_vector(15 downto 0);
-    signal device_filter_accepted : std_logic;
-    signal debug_leds : std_logic_vector(7 downto 0);
+    signal full_reciever_data_out : std_logic_vector(7 downto 0);
+    signal full_reciever_data_valid_out : std_logic;
+    signal full_reciever_data_sop : std_logic;
+    signal full_reciever_data_eop : std_logic;
 begin
 	zeros <= (others => '0');
 
@@ -361,53 +356,30 @@ begin
 				PS_FLAGS_OFFSET_IN     => PS_FLAGS_OFFSET_IN,
 				
 				-- user data interface
-				USR_DATA_OUT           => parser_data_in,
-				USR_DATA_VALID_OUT     => parser_data_valid,
-				USR_SOP_OUT            => parser_start_packet,
-				USR_EOP_OUT            => parser_end_packet,
+				USR_DATA_OUT           => full_reciever_data_out,
+				USR_DATA_VALID_OUT     => full_reciever_data_valid_out,
+				USR_SOP_OUT            => full_reciever_data_sop,
+				USR_EOP_OUT            => full_reciever_data_eop,
 			
 				DEBUG_OUT              => open
 			);
-			Parser : entity work.parser
-			port map (
-                clk_read => CLK,
-                reset => RESET,
-                start_packet => parser_start_packet,
-                end_packet => parser_end_packet,
-                data_valid => parser_data_valid,
-                data_in => parser_data_in,      
-                eventID => parser_eventID,
-                triggerID => parser_triggerID,
-                deviceID => parser_deviceID,
-                dataWORD => parser_dataWORD,
-                out_data => parser_out_data
-            );
-            DeviceFilter : entity work.devicefilter 
-            port map (
-                deviceID => parser_deviceID,
-                in_data => parser_out_data,
-                clock => CLK,
-                channel_offset => device_filter_channel_offset,
-                accepted => device_filter_accepted
-            );
-            TdcParser : entity work.tdc_parser 
-            port map (
-                clock => CLK,
-                in_data => device_filter_accepted,
-                dataWORD => parser_dataWORD,
-                channel_offset => device_filter_channel_offset,
-                eventID => parser_eventID,
-                triggerID => parser_triggerID,
-                
-                out_data => debug_leds(0), -- out std_logic;
-                time_isrising => debug_leds(1), --out std_logic;
-                time_channel => open, -- out std_logic_vector(15 downto 0);
-                time_epoch => open, -- out std_logic_vector(27 downto 0);
-                time_fine => open, -- out std_logic_vector(9 downto 0);
-                time_coasser => open -- out std_logic_vector(10 downto 0)
-            );
-            
 	end generate full_receiver_gen;
+	
+	USR_DATA_OUT_UPDATE : process(RESET, CLK)
+	begin
+	   if RESET = '1' then
+           USR_DATA_OUT <= "00000000";
+           USR_DATA_VALID_OUT <= '0';
+           USR_SOP_OUT <= '0';
+           USR_EOP_OUT <= '0';
+        elsif rising_edge(CLK) then
+            USR_DATA_OUT <= full_reciever_data_out;
+            USR_DATA_VALID_OUT <= full_reciever_data_valid_out;
+            USR_SOP_OUT <= full_reciever_data_sop;
+            USR_EOP_OUT <= full_reciever_data_eop;
+        end if;
+    end process USR_DATA_OUT_UPDATE;
+	   
 	
 	no_full_receiver_gen : if INCLUDE_FULL_RECEIVER = '0' generate
 		resp_ready(3) <= '0';
@@ -524,11 +496,4 @@ begin
 			end if;
 		end if;
 	end process SELECTOR_PROC;
-
-    UPDATE_DEBUG_LEDS : process(CLK)
-    begin
-        if rising_edge(CLK) then
-            LED <= debug_leds;
-        end if;
-    end process UPDATE_DEBUG_LEDS;
 end trb_net16_gbe_protocol_selector;

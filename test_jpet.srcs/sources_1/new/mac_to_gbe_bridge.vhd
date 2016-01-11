@@ -40,7 +40,7 @@ architecture Behavioral of mac_to_gbe_bridge is
 	signal fifo_wr_en, fifo_rd_en, fifo_rd_en_q, fifo_full, fifo_empty           : std_logic;
 	signal fifo_din                                                              : std_logic_vector(35 downto 0);
 	signal fifo_dout                                                             : std_logic_vector(8 downto 0);
-	signal gf_flag, gbe_gf, gbe_gf_q, gbe_gf_qq                                  : std_logic;
+	signal gf_flag, gbe_gf, gbe_gf_q, gbe_gf_qq, gbe_gf_qqq                      : std_logic;
 	signal block_write : std_logic;
 
 begin
@@ -113,7 +113,7 @@ begin
 	process(GBE_CLK_IN)
 	begin
 		if rising_edge(GBE_CLK_IN) then
-			if (fifo_empty = '0') then
+			if (fifo_empty = '0' and gbe_gf = '0' and gbe_gf_q = '0' and gbe_gf_qq = '0') then
 				fifo_rd_en <= '1';
 			else
 				fifo_rd_en <= '0';
@@ -127,13 +127,13 @@ begin
 		if rising_edge(GBE_CLK_IN) then
 			gbe_gf          <= fifo_dout(8) and not gf_flag;
 			gbe_gf_q        <= gbe_gf;
-			gbe_gf_qq		 <= gbe_gf_q;
+            gbe_gf_qq       <= gbe_gf_q;
+            gbe_gf_qqq      <= gbe_gf_qq;
 			GBE_RX_GF_OUT   <= fifo_dout(8) and not gf_flag; --gbe_gf;
 			GBE_RX_DATA_OUT <= fifo_dout(7 downto 0);
 			GBE_RX_BF_OUT   <= '0';
 			fifo_rd_en_q    <= fifo_rd_en;
-			
-			if (gbe_gf = '0' and gbe_gf_q = '0' and gbe_gf_qq = '0') then
+			if (gbe_gf = '0' and gbe_gf_q = '0' and gbe_gf_qq = '0') then --and gbe_gf_qqq = '0') then
 				GBE_RX_DV_OUT   <= fifo_rd_en_q;
 			else
 				GBE_RX_DV_OUT <= '0';

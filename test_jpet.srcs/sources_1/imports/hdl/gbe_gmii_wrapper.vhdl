@@ -18,7 +18,6 @@ entity gbe_gmii_wrapper is
 		INCLUDE_OPENCORES_MAC : integer range 0 to 1 := 0
 	);
 	port(
-	    LED : out std_logic_vector(7 downto 0);
 		SYS_CLK        : in  std_logic;
 		RESET_IN       : in  std_logic;
 		GBE_CLK_DV     : in  std_logic;
@@ -32,6 +31,11 @@ entity gbe_gmii_wrapper is
 		TX_DATA_OUT    : out std_logic_vector(7 downto 0);
 		TX_DATA_DV_OUT : out std_logic;
 		TX_DATA_ER_OUT : out std_logic;
+		
+        USR_DATA_OUT                  : out std_logic_vector(7 downto 0);
+        USR_DATA_VALID_OUT            : out std_logic;
+        USR_SOP_OUT                   : out std_logic;
+        USR_EOP_OUT                   : out std_logic;
 
 		DEBUG_OUT      : out std_logic_vector(255 downto 0)
 	);
@@ -114,7 +118,6 @@ begin
 			XILINX_SERIES7_VIVADO => XILINX_SERIES7_VIVADO
 		)
 		port map(
-		      LED=> LED,
 			SYS_CLK         => SYS_CLK,
 			RESET_IN        => RESET_IN,
 			GBE_RX_CLK      => tx_clk,
@@ -128,6 +131,12 @@ begin
 			TX_DATA_FB_OUT  => tx_fb,
 			TX_DATA_ACK_IN  => tx_ack,
 			TX_DATA_DONE_IN => tx_done,
+			
+            USR_DATA_OUT           => USR_DATA_OUT,
+            USR_DATA_VALID_OUT     => USR_DATA_VALID_OUT,
+            USR_SOP_OUT            => USR_SOP_OUT,
+            USR_EOP_OUT            => USR_EOP_OUT,
+			
 			DEBUG_OUT       => open
 		);
 

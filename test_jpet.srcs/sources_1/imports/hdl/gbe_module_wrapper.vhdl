@@ -16,7 +16,6 @@ entity gbe_module_wrapper is
 		XILINX_SERIES7_VIVADO : integer range 0 to 1 := 0
 	);
 	port(
-            LED : out std_logic_vector(7 downto 0);
 		SYS_CLK         : in  std_logic;
 		RESET_IN        : in  std_logic;
 		GBE_RX_CLK      : in  std_logic;
@@ -33,6 +32,11 @@ entity gbe_module_wrapper is
 		TX_DATA_ACK_IN  : in  std_logic;
 		TX_DATA_DONE_IN : in  std_logic;
 
+        USR_DATA_OUT                  : out std_logic_vector(7 downto 0);
+        USR_DATA_VALID_OUT            : out std_logic;
+        USR_SOP_OUT                   : out std_logic;
+        USR_EOP_OUT                   : out std_logic;
+                
 		DEBUG_OUT       : out std_logic_vector(255 downto 0)
 	);
 end gbe_module_wrapper;
@@ -128,7 +132,6 @@ begin
 			SLOWCTRL_BUFFER_SIZE  => 1
 		)
 		port map(
-		LED => LED,
 			CLK                    => SYS_CLK,
 			CLK_125                => GBE_RX_CLK,
 			RESET                  => RESET_IN,
@@ -170,6 +173,12 @@ begin
 			MC_MY_MAC_OUT          => my_mac,
 			MAC_READY_CONF_IN      => '1',
 			MC_UNIQUE_ID_IN        => (others => '1'),
+			
+            USR_DATA_OUT           => USR_DATA_OUT,
+            USR_DATA_VALID_OUT     => USR_DATA_VALID_OUT,
+            USR_SOP_OUT            => USR_SOP_OUT,
+            USR_EOP_OUT            => USR_EOP_OUT,
+			
 			DEBUG_OUT              => open
 		);
 
